@@ -107,12 +107,22 @@
   <ItemGroup>
     <Content Include="Images\Dick.jpg" />
     <Content Include="Images\DRCutOut.png" />
+    <Content Include="Images\explorer.png" />
     <Content Include="Images\hotelroom.jpg" />
+    <Content Include="Images\italyTank.png" />
     <Content Include="Images\KLRCutOut.png" />
     <Content Include="Images\ramsoup.jpg" />
+    <Content Include="Images\resinTank.png" />
+    <Content Include="Images\s244.png" />
+    <Content Include="Images\safariTank.png" />
+    <Content Include="Images\scoutTires.png" />
+    <Content Include="Images\silentExh.png" />
+    <Content Include="Images\standExh.png" />
     <Content Include="Images\steak-dinner.jpg" />
+    <Content Include="Images\TATMapMultiRoute.png" />
     <Content Include="Images\tent.jpg" />
     <Content Include="Images\XRLCutOut.png" />
+    <Content Include="Images\yoshiExh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
