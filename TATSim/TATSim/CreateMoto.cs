@@ -18,7 +18,7 @@ namespace TATSim
                 moto.Performance = 5;
                 moto.Weight = 4;
                 moto.Range = 5;
-                moto.Image = System.Drawing.Image.FromFile("D:\\Desktop\\TATSimV11.20J\\TATSim\\TATSim\\Images\\DRCutOut.png");
+                moto.Image = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\DRCutOut.png");
             }
             else if (motoType.Equals("klr"))
             {
@@ -26,7 +26,7 @@ namespace TATSim
                 moto.Performance = 5;
                 moto.Weight = 3;
                 moto.Range = 6;
-                moto.Image = System.Drawing.Image.FromFile("D:\\Desktop\\TATSimV11.20J\\TATSim\\TATSim\\Images\\KLRCutOut.png");
+                moto.Image = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\KLRCutOut.png");
             }
             else
             {
@@ -34,7 +34,7 @@ namespace TATSim
                 moto.Performance = 6;
                 moto.Weight = 5;
                 moto.Range = 3;
-                moto.Image = System.Drawing.Image.FromFile("D:\\Desktop\\TATSimV11.20J\\TATSim\\TATSim\\Images\\XRLCutOut.png");
+                moto.Image = System.Drawing.Image.FromFile(System.Environment.CurrentDirectory + "\\XRLCutOut.png");
             }
 
             return moto;
