@@ -156,7 +156,7 @@ namespace TATSim
         private bool checkMileage()
         {
             int todaysMileage = Convert.ToInt32(mileageTextBox.Text);
-            int fuelRange = Convert.ToInt32(fuelRangeTB.Text);
+            int fuelRange = Convert.ToInt32(fuelRangeTB.Text.Replace(" miles", ""));
 
             if (fuelRange < todaysMileage)
             {
