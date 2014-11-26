@@ -18,6 +18,7 @@ namespace TATSim
         public int day = 1;
         public int cash;
         public int miles;
+        Dictionary<string, RandomEvent> randomEvents;
         public GameBoardForm(TATSimForm incomingForm)
         {
             // Links the two forms together so we can 
@@ -54,6 +55,9 @@ namespace TATSim
 
             mileageTextBox.Text = miles.ToString();
 
+            randomEvents = RandomEvent.createEvents();
+            checkMileage();
+
             //Console.WriteLine(originalForm.playersMoto.Name.ToString());
             //Console.WriteLine(originalForm.playersMoto.Performance.ToString());
             //Console.WriteLine(originalForm.playersMoto.Range.ToString());
@@ -83,6 +87,90 @@ namespace TATSim
         }
 
         private void nextDayBtn_Click(object sender, EventArgs e)
+        {
+            //Get a possible random event
+            RandomEvent currentEvent = getRandomEvent();
+            if (currentEvent != null)
+            {
+                //Display the Random Event screen so the player can determine what to do
+                changeToRandomEventScreen();
+            }
+
+            //Checks to make sure the random event has been dealt with
+            if (!grpbxRandomEvent.Visible && checkMileage())
+            {
+                int todaysMileage = Convert.ToInt32(mileageTextBox.Text);
+                int fuelRange = Convert.ToInt32(fuelRangeTB.Text);
+                fuelRange -= todaysMileage;
+                mileageTextBox.Text = todaysMileage.ToString();
+                int daysIntoTrip = Convert.ToInt32(dayNumTextBox.Text);
+                daysIntoTrip++;
+                dayNumTextBox.Text = daysIntoTrip.ToString();
+                MessageBox.Show("A day has passed.");
+            }
+        }
+
+        private void changeToRandomEventScreen()
+        {
+            //Change the map to the Random Event groupbox
+            tatMapPB.Visible = false;
+            grpbxRandomEvent.Visible = true;
+        }
+
+        /**
+         * The getRandomEvent() method searches through the randomEvents dictionary to find an event with a chance 
+         * of happening. If one is found, it is returned. Every event's chance increases randomly in this method.
+         * 
+         **/
+        private RandomEvent getRandomEvent()
+        {
+            bool eventSelected = false;
+            RandomEvent eventToReturn = null;
+            double chance = 0.0;
+            for (int i = 0; i < 100; i++)
+            {
+                chance += (double) new Random().Next(60, 101);
+            }
+            chance /= 100;
+
+            foreach (string key in randomEvents.Keys)
+            {
+                if (randomEvents[key].ChanceToHappen >= chance)
+                {
+                    if (!eventSelected)
+                    {
+                        eventToReturn = randomEvents[key];
+                        eventSelected = true;
+                        eventToReturn.resetChance();
+                    }
+                }
+                else
+                {
+                    randomEvents[key].increaseChance();
+                }
+            }
+
+            return eventToReturn;
+        }
+
+        private bool checkMileage()
+        {
+            int todaysMileage = Convert.ToInt32(mileageTextBox.Text);
+            int fuelRange = Convert.ToInt32(fuelRangeTB.Text);
+
+            if (fuelRange < todaysMileage)
+            {
+                btnFillUp.Visible = true;
+                return true;
+            }
+            else
+            {
+                btnFillUp.Visible = false;
+                return false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

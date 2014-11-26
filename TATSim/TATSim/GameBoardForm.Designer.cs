@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gameBoardPanel = new System.Windows.Forms.Panel();
+            this.mileageTextBox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.nextDayBtn = new System.Windows.Forms.Button();
             this.eatPanel = new System.Windows.Forms.Panel();
             this.steakRadBut = new System.Windows.Forms.RadioButton();
@@ -65,8 +67,13 @@
             this.routeStartBtn1 = new System.Windows.Forms.Button();
             this.capeHRouteRadBut = new System.Windows.Forms.RadioButton();
             this.nyRouteRadBut = new System.Windows.Forms.RadioButton();
-            this.mileageTextBox = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.grpbxRandomEvent = new System.Windows.Forms.GroupBox();
+            this.lblRandomEventTitle = new System.Windows.Forms.Label();
+            this.rtbxRandomEventDescription = new System.Windows.Forms.RichTextBox();
+            this.btnHighPriceFix = new System.Windows.Forms.Button();
+            this.btnLowPricedFix = new System.Windows.Forms.Button();
+            this.btnIgnore = new System.Windows.Forms.Button();
+            this.btnFillUp = new System.Windows.Forms.Button();
             this.gameBoardPanel.SuspendLayout();
             this.eatPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.steakPB)).BeginInit();
@@ -78,10 +85,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.playersMotoPB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tatMapPB)).BeginInit();
             this.routeSelectPanel1.SuspendLayout();
+            this.grpbxRandomEvent.SuspendLayout();
             this.SuspendLayout();
             // 
             // gameBoardPanel
             // 
+            this.gameBoardPanel.Controls.Add(this.btnFillUp);
+            this.gameBoardPanel.Controls.Add(this.grpbxRandomEvent);
             this.gameBoardPanel.Controls.Add(this.mileageTextBox);
             this.gameBoardPanel.Controls.Add(this.label14);
             this.gameBoardPanel.Controls.Add(this.nextDayBtn);
@@ -110,6 +120,27 @@
             this.gameBoardPanel.Name = "gameBoardPanel";
             this.gameBoardPanel.Size = new System.Drawing.Size(1326, 705);
             this.gameBoardPanel.TabIndex = 0;
+            // 
+            // mileageTextBox
+            // 
+            this.mileageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mileageTextBox.Location = new System.Drawing.Point(1127, 124);
+            this.mileageTextBox.Name = "mileageTextBox";
+            this.mileageTextBox.ReadOnly = true;
+            this.mileageTextBox.Size = new System.Drawing.Size(121, 30);
+            this.mileageTextBox.TabIndex = 44;
+            this.mileageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label14.Location = new System.Drawing.Point(914, 125);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(212, 29);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Today\'s Mileage:";
             // 
             // nextDayBtn
             // 
@@ -502,26 +533,78 @@
             this.nyRouteRadBut.Text = "Start in New York!";
             this.nyRouteRadBut.UseVisualStyleBackColor = true;
             // 
-            // mileageTextBox
+            // grpbxRandomEvent
             // 
-            this.mileageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mileageTextBox.Location = new System.Drawing.Point(1127, 124);
-            this.mileageTextBox.Name = "mileageTextBox";
-            this.mileageTextBox.ReadOnly = true;
-            this.mileageTextBox.Size = new System.Drawing.Size(121, 30);
-            this.mileageTextBox.TabIndex = 44;
-            this.mileageTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.grpbxRandomEvent.Controls.Add(this.btnIgnore);
+            this.grpbxRandomEvent.Controls.Add(this.btnLowPricedFix);
+            this.grpbxRandomEvent.Controls.Add(this.btnHighPriceFix);
+            this.grpbxRandomEvent.Controls.Add(this.rtbxRandomEventDescription);
+            this.grpbxRandomEvent.Controls.Add(this.lblRandomEventTitle);
+            this.grpbxRandomEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpbxRandomEvent.Location = new System.Drawing.Point(3, 55);
+            this.grpbxRandomEvent.Name = "grpbxRandomEvent";
+            this.grpbxRandomEvent.Size = new System.Drawing.Size(855, 394);
+            this.grpbxRandomEvent.TabIndex = 45;
+            this.grpbxRandomEvent.TabStop = false;
+            this.grpbxRandomEvent.Text = "Random Event";
+            this.grpbxRandomEvent.Visible = false;
             // 
-            // label14
+            // lblRandomEventTitle
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label14.Location = new System.Drawing.Point(914, 125);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(212, 29);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Today\'s Mileage:";
+            this.lblRandomEventTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblRandomEventTitle.AutoSize = true;
+            this.lblRandomEventTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRandomEventTitle.Location = new System.Drawing.Point(381, 20);
+            this.lblRandomEventTitle.Name = "lblRandomEventTitle";
+            this.lblRandomEventTitle.Size = new System.Drawing.Size(92, 29);
+            this.lblRandomEventTitle.TabIndex = 0;
+            this.lblRandomEventTitle.Text = "label15";
+            // 
+            // rtbxRandomEventDescription
+            // 
+            this.rtbxRandomEventDescription.Location = new System.Drawing.Point(26, 73);
+            this.rtbxRandomEventDescription.Name = "rtbxRandomEventDescription";
+            this.rtbxRandomEventDescription.Size = new System.Drawing.Size(802, 143);
+            this.rtbxRandomEventDescription.TabIndex = 1;
+            this.rtbxRandomEventDescription.Text = "";
+            // 
+            // btnHighPriceFix
+            // 
+            this.btnHighPriceFix.Location = new System.Drawing.Point(68, 304);
+            this.btnHighPriceFix.Name = "btnHighPriceFix";
+            this.btnHighPriceFix.Size = new System.Drawing.Size(128, 45);
+            this.btnHighPriceFix.TabIndex = 2;
+            this.btnHighPriceFix.Text = "High Priced Fix";
+            this.btnHighPriceFix.UseVisualStyleBackColor = true;
+            // 
+            // btnLowPricedFix
+            // 
+            this.btnLowPricedFix.Location = new System.Drawing.Point(359, 304);
+            this.btnLowPricedFix.Name = "btnLowPricedFix";
+            this.btnLowPricedFix.Size = new System.Drawing.Size(128, 45);
+            this.btnLowPricedFix.TabIndex = 3;
+            this.btnLowPricedFix.Text = "Low Priced Fix";
+            this.btnLowPricedFix.UseVisualStyleBackColor = true;
+            this.btnLowPricedFix.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnIgnore
+            // 
+            this.btnIgnore.Location = new System.Drawing.Point(670, 304);
+            this.btnIgnore.Name = "btnIgnore";
+            this.btnIgnore.Size = new System.Drawing.Size(128, 45);
+            this.btnIgnore.TabIndex = 4;
+            this.btnIgnore.Text = "Ignore";
+            this.btnIgnore.UseVisualStyleBackColor = true;
+            // 
+            // btnFillUp
+            // 
+            this.btnFillUp.Location = new System.Drawing.Point(1263, 313);
+            this.btnFillUp.Name = "btnFillUp";
+            this.btnFillUp.Size = new System.Drawing.Size(59, 30);
+            this.btnFillUp.TabIndex = 46;
+            this.btnFillUp.Text = "Fill up!";
+            this.btnFillUp.UseVisualStyleBackColor = true;
+            this.btnFillUp.Visible = false;
             // 
             // GameBoardForm
             // 
@@ -550,6 +633,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tatMapPB)).EndInit();
             this.routeSelectPanel1.ResumeLayout(false);
             this.routeSelectPanel1.PerformLayout();
+            this.grpbxRandomEvent.ResumeLayout(false);
+            this.grpbxRandomEvent.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -595,6 +680,13 @@
         private System.Windows.Forms.Button nextDayBtn;
         private System.Windows.Forms.TextBox mileageTextBox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox grpbxRandomEvent;
+        private System.Windows.Forms.Label lblRandomEventTitle;
+        private System.Windows.Forms.Button btnLowPricedFix;
+        private System.Windows.Forms.Button btnHighPriceFix;
+        private System.Windows.Forms.RichTextBox rtbxRandomEventDescription;
+        private System.Windows.Forms.Button btnIgnore;
+        private System.Windows.Forms.Button btnFillUp;
 
     }
 }
